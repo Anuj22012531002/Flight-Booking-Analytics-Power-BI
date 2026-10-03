@@ -1,0 +1,31 @@
+Flight_ID,Airline_ID,Flight_Number,Aircraft_Type,Source_Airport,Destination_Airport,Departure_Time,Arrival_Time,Duration_Minutes,Total_Stops
+2001,4,FL155,Airbus A321,HYD,AMD,Afternoon,Late Night,155,1
+2002,4,FL459,Boeing 787,MAA,BOM,Morning,Night,112,1
+2003,7,FL213,ATR 72,BOM,GOI,Early Morning,Late Night,233,0
+2004,2,FL187,Airbus A320,MAA,MAA,Night,Afternoon,169,1
+2005,4,FL237,Boeing 787,DEL,DEL,Afternoon,Evening,375,1
+2006,1,FL207,Boeing 787,HYD,BLR,Early Morning,Afternoon,110,1
+2007,6,FL599,Airbus A320,BOM,HYD,Evening,Morning,312,0
+2008,7,FL634,Boeing 737,MAA,BOM,Evening,Afternoon,132,1
+2009,1,FL243,Airbus A320,BOM,GOI,Morning,Evening,271,0
+2010,2,FL968,Airbus A321,DEL,DEL,Evening,Evening,271,0
+2011,4,FL755,Boeing 787,HYD,BLR,Night,Night,310,1
+2012,7,FL155,Airbus A321,BOM,AMD,Afternoon,Night,227,1
+2013,3,FL719,ATR 72,DEL,BOM,Morning,Evening,322,2
+2014,6,FL962,Boeing 787,BLR,MAA,Afternoon,Evening,390,2
+2015,3,FL105,Boeing 737,BOM,HYD,Afternoon,Morning,289,0
+2016,5,FL641,Airbus A320,HYD,BLR,Early Morning,Afternoon,298,2
+2017,2,FL546,ATR 72,CCU,MAA,Evening,Night,334,0
+2018,5,FL484,Airbus A321,CCU,CCU,Afternoon,Morning,202,0
+2019,3,FL406,ATR 72,BOM,DEL,Night,Afternoon,129,1
+2020,3,FL973,Boeing 737,BOM,BOM,Night,Night,371,0
+2021,3,FL956,Airbus A320,DEL,DEL,Evening,Morning,233,1
+2022,5,FL738,ATR 72,MAA,BLR,Evening,Late Night,395,0
+2023,7,FL401,Airbus A321,CCU,JAI,Morning,Late Night,168,2
+2024,2,FL732,ATR 72,MAA,JAI,Morning,Night,262,0
+2025,8,FL504,Airbus A320,CCU,HYD,Morning,Morning,244,0
+2026,6,FL710,ATR 72,BOM,CCU,Evening,Afternoon,350,2
+2027,8,FL777,Airbus A321,HYD,AMD,Afternoon,Afternoon,387,0
+2028,7,FL936,Airbus A320,HYD,GOI,Early Morning,Morning,151,1
+2029,6,FL930,Boeing 737,CCU,BOM,Morning,Late Night,318,1
+2030,1,FL852,Boeing 737,CCU,BOM,Early Morning,Morning,381,1

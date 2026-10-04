@@ -270,6 +270,127 @@ JOIN dim_airlines a
 GROUP BY a.Airline_Name
 ORDER BY Total_Revenue DESC;
 
+#  Bookings by Airline Name
+SELECT
+    a.Airline_Name,
+    COUNT(f.Booking_ID) AS Total_Bookings
+FROM fact_bookings f
+JOIN dim_flights fl
+    ON f.Flight_ID = fl.Flight_ID
+JOIN dim_airlines a
+    ON fl.Airline_ID = a.Airline_ID
+GROUP BY a.Airline_Name
+ORDER BY Total_Bookings DESC;
+
+# Ticket Price by Airline Name
+SELECT
+    a.Airline_Name,
+    SUM(fb.Ticket_Price) AS Total_Ticket_Price
+FROM fact_bookings fb
+JOIN dim_flights fl
+    ON fb.Flight_ID = fl.Flight_ID
+JOIN dim_airlines a
+    ON fl.Airline_ID = a.Airline_ID
+GROUP BY a.Airline_Name
+ORDER BY Total_Ticket_Price DESC;
+
+# Passengers by Airline Name
+SELECT
+    a.Airline_Name,
+    SUM(fb.Passenger_Count) AS Total_Passengers
+FROM fact_bookings fb
+JOIN dim_flights fl
+    ON fb.Flight_ID = fl.Flight_ID
+JOIN dim_airlines a
+    ON fl.Airline_ID = a.Airline_ID
+GROUP BY a.Airline_Name
+ORDER BY Total_Passengers DESC;
+
+##  Cancellation Rate by Airline Name
+SELECT
+    a.Airline_Name,
+    ROUND(
+        SUM(
+            CASE 
+                WHEN fb.Booking_Status = 'Cancelled' THEN 1
+                ELSE 0
+            END
+        ) * 100.0 / COUNT(fb.Booking_ID),
+        2
+    ) AS Cancellation_Rate
+FROM fact_bookings fb
+JOIN dim_flights fl
+    ON fb.Flight_ID = fl.Flight_ID
+JOIN dim_airlines a
+    ON fl.Airline_ID = a.Airline_ID
+GROUP BY a.Airline_Name
+ORDER BY Cancellation_Rate DESC;
+
+# Rating by Airline Name
+SELECT
+    a.Airline_Name,
+    ROUND(AVG(a.Rating), 2) AS Average_Rating
+FROM dim_airlines a
+GROUP BY a.Airline_Name
+ORDER BY Average_Rating DESC;
+
+# Monthly Revenue
+SELECT
+    d.Month_Name,
+    SUM(f.Final_Amount) AS Monthly_Revenue
+FROM fact_bookings f
+JOIN dim_dates d
+    ON f.Booking_Date_ID = d.Date_ID
+GROUP BY d.Month_Name
+ORDER BY Monthly_Revenue DESC;
+
+# Revenue by Ticket Class
+SELECT
+    Ticket_Class,
+    SUM(Final_Amount) AS Total_Revenue
+FROM fact_bookings
+GROUP BY Ticket_Class
+ORDER BY Total_Revenue DESC;
+
+# Revenue by Booking Channel
+SELECT
+    Booking_Channel,
+    SUM(Final_Amount) AS Total_Revenue
+FROM fact_bookings
+GROUP BY Booking_Channel
+ORDER BY Total_Revenue DESC;
+
+# Revenue by Loyalty Status
+SELECT
+    c.Loyalty_Status,
+    SUM(f.Final_Amount) AS Total_Revenue
+FROM fact_bookings f
+JOIN dim_customers c
+    ON f.Customer_ID = c.Customer_ID
+GROUP BY c.Loyalty_Status
+ORDER BY Total_Revenue DESC;
+
+# Revenue by Source Airport
+SELECT
+    fl.Source_Airport,
+    SUM(f.Final_Amount) AS Total_Revenue
+FROM fact_bookings f
+JOIN dim_flights fl
+    ON f.Flight_ID = fl.Flight_ID
+GROUP BY fl.Source_Airport
+ORDER BY Total_Revenue DESC;
+
+# Revenue by Destination Airport
+SELECT
+    fl.Destination_Airport,
+    SUM(f.Final_Amount) AS Total_Revenue
+FROM fact_bookings f
+JOIN dim_flights fl
+    ON f.Flight_ID = fl.Flight_ID
+GROUP BY fl.Destination_Airport
+ORDER BY Total_Revenue DESC;
+
+
 ## Airlines with Revenue Greater Than Average
 SELECT
     a.Airline_Name,
